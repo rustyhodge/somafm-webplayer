@@ -7,10 +7,10 @@ angular.module('somafmPlayerApp')
 
       var self = this;
       self.audioHolder = null,
-      self.audio = null,
-      self.context = null,
-      self.howl = null,
-      self.volumeKey = 'volume';
+        self.audio = null,
+        self.context = null,
+        self.howl = null,
+        self.volumeKey = 'volume';
       self.lastVolume = null;
       self.currentTime = 0;
 
@@ -25,15 +25,25 @@ angular.module('somafmPlayerApp')
       };
 
       var playStream = function (station) {
-        self.audio.play();
+        //        self.audio.play();
 
         //var analyser = self.context.createAnalyser();
         //var source = self.context.createMediaElementSource(self.audio);
         //source.connect(analyser);
         //analyser.connect(self.context.destination);
-
-
+        var promise = self.audio.play();
         station.playing = true;
+        if (promise !== undefined) {
+          promise.catch(function (error) {
+            //autoplay prevented
+            console.log("Autoplay prevented, trying to play again");
+            stop();
+            station.playing = false;
+            return;
+          });
+        }
+
+
       };
 
       var play = function (station) {
@@ -120,7 +130,15 @@ angular.module('somafmPlayerApp')
 
         self.audioHolder[0].appendChild(self.audio);
 
-        self.context = new AudioContext();
+        var AudioContext = window.AudioContext // Default
+          || window.webkitAudioContext // Safari and old versions of Chrome
+          || false;
+
+        if (AudioContext) {
+          self.context = new AudioContext();
+        } else {
+          alert("Sorry, but the Web Audio API is not supported by your browser. Please, consider upgrading to the latest version or downloading Google Chrome or Mozilla Firefox");
+        }
 
         initVolume();
       };
