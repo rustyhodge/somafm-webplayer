@@ -15,6 +15,9 @@ angular.module('somafmPlayerApp')
       self.currentTime = 0;
 
       var loadStreams = function (station) {
+        while (self.audio.hasChildNodes()) {
+          self.audio.removeChild(self.audio.firstChild);
+        }
         angular.forEach(station.streamUrls.reverse(), function (url) {
           var source = document.createElement('source');
           source.type = self.audio.canPlayType('audio/mpeg;') ? 'audio/mpeg' : source.type = 'audio/ogg';
@@ -26,7 +29,6 @@ angular.module('somafmPlayerApp')
 
       var playStream = function (station) {
         //        self.audio.play();
-
         //var analyser = self.context.createAnalyser();
         //var source = self.context.createMediaElementSource(self.audio);
         //source.connect(analyser);
@@ -48,8 +50,12 @@ angular.module('somafmPlayerApp')
 
       var play = function (station) {
         return $q(function (resolve, reject) {
-          if ($rootScope.playingStation) $rootScope.playingStation.playing = false;
+          if ($rootScope.playingStation) {
+            stop();
+            $rootScope.playingStation.playing = false;
+          }
           if (station.streamUrls != null) {
+            console.log("We have stream urls");
             loadStreams(station);
             playStream(station);
             $rootScope.playingStation = station;

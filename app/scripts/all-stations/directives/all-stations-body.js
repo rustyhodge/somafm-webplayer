@@ -5,15 +5,15 @@ angular.module('somafmPlayerApp')
     '$state', 'StationService', 'PlayerService', 'FavStationsService',
     function ($state, StationService, PlayerService, FavStationsService) {
       return {
-        restrict :"E",
+        restrict: "E",
         replace: true,
         templateUrl: 'all-stations/body.tpl.html',
         link: function (scope, element, attr) {
           scope.sort = {
             types: [
-              {label: 'Popularity', type: 'popularity', defaultAsc: false},
-              {label: 'Name', type: 'name', defaultAsc: true},
-              {label: 'Genre', type: 'genre', defaultAsc: true}
+              { label: 'Popularity', type: 'popularity', defaultAsc: false },
+              { label: 'Name', type: 'name', defaultAsc: true },
+              { label: 'Genre', type: 'genre', defaultAsc: true }
             ],
             selectedType: null,
             asc: true,
@@ -83,7 +83,7 @@ angular.module('somafmPlayerApp')
           };
 
           scope.playStation = function (station) {
-            $state.go('now-playing', {stationID: station._id});
+            $state.go('now-playing', { stationID: station._id });
           };
 
           scope.isStationPlaying = function (station) {

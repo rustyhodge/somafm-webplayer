@@ -28,7 +28,11 @@ angular.module('somafmPlayerApp')
 
       var play = function (station) {
         return $q(function (resolve, reject) {
-          if ($rootScope.playingStation) $rootScope.playingStation.playing = false;
+          if ($rootScope.playingStation) {
+            $rootScope.playingStation.playing = false;
+            stop();
+            return;
+          }
           if (station.streamUrls != null) {
             loadStreams(station);
             playStream(station);

@@ -218,7 +218,11 @@ module.exports = function (grunt) {
           AppURLs: grunt.file.readJSON('app/config/dev-config.json')
         }
       },
-
+      productiontest: {
+        constants: {
+          AppURLs: grunt.file.readJSON('app/config/prod-test-config.json')
+        }
+      },
       production: {
         constants: {
           AppURLs: grunt.file.readJSON('app/config/prod-config.json')
@@ -466,6 +470,32 @@ module.exports = function (grunt) {
 
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
+    }
+    if (target === 'test') {
+      return grunt.task.run([
+        'clean:dist',
+        'bowerInstall',
+        'ngconstant:productiontest',
+        'html2js',
+        'includeSource:dist',
+        'useminPrepare',
+        'concurrent:dist',
+        'autoprefixer',
+        'concat',
+        'ngAnnotate',
+        'copy:dist',
+        'cdnify',
+        'imagemin',
+        'cssmin',
+        'uglify',
+        'rev',
+        'usemin',
+        'htmlmin',
+        'replace',
+        'connect:dist:keepalive',
+        'watch'
+      ]);
+
     }
 
     grunt.task.run([

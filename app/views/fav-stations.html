@@ -18,7 +18,7 @@
 <list>
     <div class="row card" ng-repeat="station in organizedStations" ng-if="organizeMethod !== 'genre'">
         <div class="col-xs-2 img-col">
-            <img class="img-responsive" src="{{station.image}}" />
+            <img class="img-responsive" ng-src="{{station.image}}" />
         </div>
         <div class="col-xs-8 copy-col">
             <h4>{{station.title}}</h4>
@@ -43,7 +43,7 @@
 
         <div class="card" ng-repeat="station in organizedStations[genre]">
             <div class="col-xs-2 img-col">
-                <img class="img-responsive" src="{{station.image}}" />
+                <img class="img-responsive" ng-src="{{station.image}}" />
             </div>
             <div class="col-xs-8 copy-col">
                 <h4>{{station.title}}</h4>
@@ -57,8 +57,8 @@
                 <button class="btn btn-link btn-lg pull-right" ng-click="stopStation(station)" ng-show="$root.playingStation === station">
                     <span class="glyphicon glyphicon-stop"></span>
                 </button>
-                <button class="btn btn-link btn-lg btn-fav pull-right ng-click="removeStation(station)">
-                    <span class="glyphicon glyphicon-star"></span>
+                <button class="btn btn-link btn-lg btn-fav pull-right ng-click=" removeStation(station) ">
+                    <span class="glyphicon glyphicon-star "></span>
                 </button>
             </div>
         </div>

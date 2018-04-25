@@ -4,9 +4,9 @@ angular.module('somafmPlayerApp')
   .directive("htmlplayer", ["$rootScope", '$window', '$timeout', 'StorageService',
     function ($rootScope, $window, $timeout, StorageService) {
       return {
-        restrict : "E",
-        replace : true,
-        scope : {
+        restrict: "E",
+        replace: true,
+        scope: {
           station: "="
         },
         template:
@@ -44,7 +44,7 @@ angular.module('somafmPlayerApp')
 
           });
 
-          angular.element($window).bind( "resize", function () {
+          angular.element($window).bind("resize", function () {
             scope.updateLayout();
           });
 
@@ -76,8 +76,17 @@ angular.module('somafmPlayerApp')
             });
 
             scope.audio.load();
-            scope.audio.play();
-            scope.playing = true;
+            var promise = scope.audio.play();
+            if (promise !== undefined) {
+              promise.catch(error => {
+                //autoplay prevented
+                scope.togglePlay();
+              }).then(() => {
+                //autoplay
+                scope.playing = true;
+
+              });
+            }
           };
 
           scope.stop = function () {
@@ -114,7 +123,7 @@ angular.module('somafmPlayerApp')
           scope.toggleMute = function () {
             scope.muted = !scope.muted;
             scope.audio.muted = scope.muted;
-            if (scope.muted)  lastVolume = scope.audio.volume;
+            if (scope.muted) lastVolume = scope.audio.volume;
             scope.setVolume(scope.muted ? 0 : lastVolume);
           };
 

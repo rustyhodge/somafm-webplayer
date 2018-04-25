@@ -134,6 +134,7 @@
 		<djmail><![CDATA[rusty@somafm.com]]></djmail>
 		<genre>lounge</genre>
 		<image>http://somafm.com/img/illstreet.jpg</image>
+		<largeimage>http://somafm.com/img/illstreet.jpg</largeimage>
 		
 		<xlimage>http://somafm.com/logos/512/illstreet512.png</xlimage>
 		<twitter>illstreet</twitter>
@@ -475,6 +476,7 @@
 		<djmail><![CDATA[rusty@somafm.com]]></djmail>
 		<genre>specials</genre>
 		<image>http://somafm.com/img/defcon120.png</image>
+		<largeimage>http://somafm.com/img/defcon120.png</largeimage>
 		
 		
 		

@@ -6,7 +6,7 @@ angular.module('somafmPlayerApp')
     function ($log, $q, StorageService) {
 
       var songs = [],
-          songKey = "fav-songs";
+        songKey = "fav-songs";
 
       var getSongs = function (refresh) {
         if (angular.isUndefined(refresh)) refresh = false;
@@ -21,15 +21,17 @@ angular.module('somafmPlayerApp')
       };
 
       var addSong = function (song) {
+        console.log(song);
         return $q(function (resolve, reject) {
           getSongs().then(
             function (songs) {
               if (angular.isDefined(song)) reject();
-
               song.favorite = true;
+              if (songs == null) {
+                songs = [];
+              }
               songs.push(_.pick(song, 'title', 'artist', 'album', 'albumart', 'date'));
               StorageService.add(songKey, songs);
-
               getSongs(true).then(resolve, reject);
             }
           );
@@ -42,7 +44,7 @@ angular.module('somafmPlayerApp')
             function (songs) {
               if (!angular.isDefined(song)) reject();
 
-              var songMatch = _.findWhere(songs, {artist: song.artist, album: song.album, title: song.title});
+              var songMatch = _.findWhere(songs, { artist: song.artist, album: song.album, title: song.title });
               if (songMatch != null) {
                 song.favorite = false;
                 songs.splice(_.indexOf(songs, songMatch), 1);
@@ -59,7 +61,7 @@ angular.module('somafmPlayerApp')
         return $q(function (resolve, reject) {
           getSongs().then(
             function (songs) {
-              resolve(_.findWhere(songs, {artist: song.artist, title: song.title}) != null);
+              resolve(_.findWhere(songs, { artist: song.artist, title: song.title }) != null);
             }
           );
         });

@@ -1,5 +1,5 @@
 <div class="tall-header row">
-  <img class="img-responsive" src="../images/header/list_header.jpg"/>
+  <img class="img-responsive" src="../images/header/list_header.jpg" />
 </div>
 
 <div class="list-titlebar row">
@@ -10,8 +10,7 @@
     <div class="btn-group btn-group-sm pull-right">
       <button class="btn btn-primary {{organizeMethod === 'name' ? 'active' : ''}}" ng-click="sortBy('name')">Name
       </button>
-      <button class="btn btn-primary {{organizeMethod === 'popularity' ? 'active' : ''}}"
-              ng-click="sortBy('popularity')">Popularity
+      <button class="btn btn-primary {{organizeMethod === 'popularity' ? 'active' : ''}}" ng-click="sortBy('popularity')">Popularity
       </button>
       <button class="btn btn-primary {{organizeMethod === 'genre' ? 'active' : ''}}" ng-click="sortBy('genre')">Genre
       </button>
@@ -23,7 +22,7 @@
 
   <div class="row card" ng-repeat="station in organizedStations" ng-if="organizeMethod !== 'genre'">
     <div class="col-xs-2 img-col">
-      <img class="img-responsive" src="{{station.image}}"/>
+      <img class="img-responsive" ng-src="{{station.image}}" />
     </div>
     <div class="col-xs-8 copy-col">
       <h4>{{station.title}}</h4>
@@ -31,16 +30,13 @@
       <p class="small">{{station.listeners}} listeners</p>
     </div>
     <div class="col-xs-2">
-      <button class="btn btn-link btn-lg pull-right" ng-click="playStation(station)"
-              ng-show="$root.playingStation !== station">
+      <button class="btn btn-link btn-lg pull-right" ng-click="playStation(station)" ng-show="$root.playingStation !== station">
         <span class="glyphicon glyphicon-play"></span>
       </button>
-      <button class="btn btn-link btn-lg pull-right" ng-click="stopStation(station)"
-              ng-show="$root.playingStation === station">
+      <button class="btn btn-link btn-lg pull-right" ng-click="stopStation(station)" ng-show="$root.playingStation === station">
         <span class="glyphicon glyphicon-stop"></span>
       </button>
-      <button class="btn btn-link btn-lg pull-right" ng-class="{'btn-fav': station.favorite}"
-              ng-click="toggleFavStation(station)">
+      <button class="btn btn-link btn-lg pull-right" ng-class="{'btn-fav': station.favorite}" ng-click="toggleFavStation(station)">
         <span class="glyphicon {{station.favorite ? 'glyphicon-star' : 'glyphicon-star-empty'}}"></span>
       </button>
     </div>
@@ -51,7 +47,7 @@
     <div class="genre">{{genre | uppercase}}</div>
     <div class="row card" ng-repeat="station in organizedStations[genre]">
       <div class="col-xs-2 img-col">
-        <img class="img-responsive" src="{{station.image}}"/>
+        <img class="img-responsive" ng-src="{{station.image}}" />
       </div>
       <div class="col-xs-8 copy-col">
         <h4>{{station.title}}</h4>
@@ -61,16 +57,13 @@
         <p class="small">{{station.listeners}} listeners</p>
       </div>
       <div class="col-xs-2">
-        <button class="btn btn-link btn-lg pull-right" ng-click="playStation(station)"
-                ng-show="$root.playingStation !== station">
+        <button class="btn btn-link btn-lg pull-right" ng-click="playStation(station)" ng-show="$root.playingStation !== station">
           <span class="glyphicon glyphicon-play"></span>
         </button>
-        <button class="btn btn-link btn-lg pull-right" ng-click="stopStation(station)"
-                ng-show="$root.playingStation === station">
+        <button class="btn btn-link btn-lg pull-right" ng-click="stopStation(station)" ng-show="$root.playingStation === station">
           <span class="glyphicon glyphicon-stop"></span>
         </button>
-        <button class="btn btn-link btn-lg pull-right" ng-class="{'btn-fav': station.favorite}"
-                ng-click="toggleFavStation(station)">
+        <button class="btn btn-link btn-lg pull-right" ng-class="{'btn-fav': station.favorite}" ng-click="toggleFavStation(station)">
           <span class="glyphicon {{station.favorite ? 'glyphicon-star' : 'glyphicon-star-empty'}}"></span>
         </button>
       </div>

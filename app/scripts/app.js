@@ -15,9 +15,9 @@ angular
   .constant('USE_HTML_AUDIO', (function () {
     var elem = document.createElement("audio");
 
-    if( typeof elem.canPlayType == 'function' ) {
+    if (typeof elem.canPlayType == 'function') {
       var playable = elem.canPlayType('audio/mpeg');
-      if( (playable.toLowerCase() == 'maybe') || (playable.toLowerCase() == 'probably') ) {
+      if ((playable.toLowerCase() == 'maybe') || (playable.toLowerCase() == 'probably')) {
         return true;
       }
     }
@@ -28,7 +28,7 @@ angular
   .constant('X2JS', window.X2JS)
   .constant('Audio', window.Audio)
   .constant('AudioContext', window.AudioContext)
-  .config(['localStorageServiceProvider', function(localStorageServiceProvider){
+  .config(['localStorageServiceProvider', function (localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('somafm');
   }])
   .config([
@@ -78,17 +78,23 @@ angular
             }
           }
         })
-        .state('community', {
+/*        .state('community', {
           url: '/community',
+          data: {
+            largeHeader: false
+          }
+        })
+*/        .state('support', {
+          url: '/support',
           data: {
             largeHeader: false
           },
           views: {
             header: {
-              template: '<sf-community-header></sf-community-header>'
+              template: '<sf-support-header></sf-support-header>'
             },
             body: {
-              template: '<sf-community-body></sf-community-body>'
+              template: '<sf-support-body></sf-support-body>'
             }
           }
         })
