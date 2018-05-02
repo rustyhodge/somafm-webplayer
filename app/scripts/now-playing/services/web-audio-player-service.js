@@ -38,7 +38,6 @@ angular.module('somafmPlayerApp')
         if (promise !== undefined) {
           promise.catch(function (error) {
             //autoplay prevented
-            console.log("Autoplay prevented, trying to play again");
             stop();
             station.playing = false;
             return;
@@ -50,12 +49,16 @@ angular.module('somafmPlayerApp')
 
       var play = function (station) {
         return $q(function (resolve, reject) {
-          if ($rootScope.playingStation) {
+          if (station != null && $rootScope.playingStation != null && station == $rootScope.playingStation
+            && $rootScope.playingStation.playing) {
+            resolve($rootScope.playingStation);
+            return;
+          }
+          if (station != $rootScope.playingStation && $rootScope.playingStation) {
             stop();
             $rootScope.playingStation.playing = false;
           }
           if (station.streamUrls != null) {
-            console.log("We have stream urls");
             loadStreams(station);
             playStream(station);
             $rootScope.playingStation = station;

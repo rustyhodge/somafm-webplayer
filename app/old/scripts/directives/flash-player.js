@@ -3,13 +3,13 @@
 angular.module('somafmPlayerApp')
   .directive("flashplayer", ['PlayerService', function (PlayerService) {
     return {
-      restrict : "E",
+      restrict: "E",
       replace: true,
       scope: {
         width: "@",
         height: "@"
       },
-      template :
+      template:
         "<div id='flashplayer'></div>",
       link: function (scope, element, attr) {
 
@@ -21,7 +21,7 @@ angular.module('somafmPlayerApp')
           streams: PlayerService.station() ? PlayerService.station().urls : []
         };
 
-        console.log(PlayerService.station().urls);
+        //        console.log(PlayerService.station().urls);
 
         var params = {
           quality: "high",

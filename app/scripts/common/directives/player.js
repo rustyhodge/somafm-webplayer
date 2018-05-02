@@ -5,7 +5,7 @@ angular.module('somafmPlayerApp')
     '$rootScope', '$timeout', 'PlayerService', 'WebAudioPlayerService',
     function ($rootScope, $timeout, PlayerService, WebAudioPlayerService) {
       return {
-        restrict :"E",
+        restrict: "E",
         replace: true,
         scope: {},
         templateUrl: 'common/player.tpl.html',

@@ -5,7 +5,7 @@ angular.module('somafmPlayerApp')
     'AppURLs', 'CommunityService',
     function (AppURLs, CommunityService) {
       return {
-        restrict :"E",
+        restrict: "E",
         replace: true,
         scope: {},
         templateUrl: 'community/body.tpl.html',

@@ -6,10 +6,10 @@ angular.module('somafmPlayerApp')
     'PlayerService', 'WebAudioPlayerService', 'StationService', 'FavStationsService', 'FavSongsService',
     'POLL_INT', 'SHOP_URI',
     function ($q, $timeout, $window, $state, $stateParams,
-              PlayerService, WebAudioPlayerService, StationService, FavStationsService, FavSongsService,
-              POLL_INT, SHOP_URI) {
+      PlayerService, WebAudioPlayerService, StationService, FavStationsService, FavSongsService,
+      POLL_INT, SHOP_URI) {
       return {
-        restrict :"E",
+        restrict: "E",
         replace: true,
         scope: {},
         templateUrl: 'now-playing/body.tpl.html',
@@ -19,14 +19,14 @@ angular.module('somafmPlayerApp')
           scope.station = null;
           scope.songs = [];
 
-          scope.loadSongs  = function () {
+          scope.loadSongs = function () {
             var loadPlaylist = StationService.getStationPlayList($stateParams.stationID);
             var loadFavSongs = FavSongsService.get();
             $q.all([loadPlaylist, loadFavSongs]).then(
               function (results) {
                 var songs = results[0], favSongs = results[1];
                 scope.songs = _.map(songs, function (song) {
-                  song.favorite = angular.isDefined(_.findWhere(favSongs, {artist: song.artist, album: song.album, title: song.title}));
+                  song.favorite = angular.isDefined(_.findWhere(favSongs, { artist: song.artist, album: song.album, title: song.title }));
                   return song;
                 });
 
@@ -49,7 +49,7 @@ angular.module('somafmPlayerApp')
             $window.open(url);
           };
 
-          scope.$on('$destroy', function() {
+          scope.$on('$destroy', function () {
             $timeout.cancel(timer);
           });
 

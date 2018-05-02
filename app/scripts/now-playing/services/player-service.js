@@ -30,8 +30,6 @@ angular.module('somafmPlayerApp')
         return $q(function (resolve, reject) {
           if ($rootScope.playingStation) {
             $rootScope.playingStation.playing = false;
-            stop();
-            return;
           }
           if (station.streamUrls != null) {
             loadStreams(station);
@@ -61,7 +59,11 @@ angular.module('somafmPlayerApp')
       var stop = function () {
         return $q(function (resolve) {
           $rootScope.playingStation.playing = false;
-
+          console.log("Trying to stop");
+          if (self.audioNode == null) {
+            console.log("audio node is null?");
+            console.log(self);
+          }
           self.audioNode.pause();
 
           //self.audioNode.load();

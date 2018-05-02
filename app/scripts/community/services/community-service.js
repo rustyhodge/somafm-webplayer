@@ -13,7 +13,7 @@ angular.module('somafmPlayerApp')
             opts['transformResponse'] = NewsTransform;
           }
 
-          var url = _.findWhere(AppURLs.community.sections, {key: 'news'}).config.dataUrl;
+          var url = _.findWhere(AppURLs.community.sections, { key: 'news' }).config.dataUrl;
 
           $http.get(url, opts).
             success(function (result) {
@@ -53,6 +53,12 @@ angular.module('somafmPlayerApp')
         });
       };
 
+      var loadGallery = function () {
+        return $q(function (resolve, reject) {
+          resolve({});
+        });
+      }
+
       var loadFacebook = function () { //not used yet
         return $q(function (resolve, reject) {
           $http.get("", {}).
@@ -70,7 +76,8 @@ angular.module('somafmPlayerApp')
         loadNews: loadNews,
         loadTwitter: loadTwitter,
         loadFlickr: loadFlickr,
-        loadFacebook: loadFacebook
+        loadFacebook: loadFacebook,
+        loadGallery: loadGallery
       }
     }
   ]);

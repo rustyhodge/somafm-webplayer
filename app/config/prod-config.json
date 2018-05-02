@@ -28,6 +28,10 @@
                 "active": false
             },
             {
+                "key": "gallery",
+                "active": true
+            },
+            {
                 "key": "facebook",
                 "active": false
             }

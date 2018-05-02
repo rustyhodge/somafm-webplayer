@@ -38,7 +38,7 @@ angular
         .state('all-stations', {
           url: '/all-stations',
           data: {
-            largeHeader: true
+            largeHeader: false
           },
           views: {
             header: {
@@ -53,7 +53,7 @@ angular
         .state('fav-stations', {
           url: '/fav-stations',
           data: {
-            largeHeader: true
+            largeHeader: false
           },
           views: {
             header: {
@@ -78,13 +78,21 @@ angular
             }
           }
         })
-/*        .state('community', {
+        .state('community', {
           url: '/community',
           data: {
             largeHeader: false
+          },
+          views: {
+            header: {
+              template: '<sf-community-header></sf-community-header>'
+            },
+            body: {
+              template: '<sf-community-body></sf-community-body>'
+            }
           }
         })
-*/        .state('support', {
+        .state('support', {
           url: '/support',
           data: {
             largeHeader: false

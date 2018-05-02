@@ -2,8 +2,8 @@
 
 angular.module('somafmPlayerApp')
   .directive("sfAllStationsBody", [
-    '$state', 'StationService', 'PlayerService', 'FavStationsService',
-    function ($state, StationService, PlayerService, FavStationsService) {
+    '$state', 'StationService', 'PlayerService', 'WebAudioPlayerService', 'FavStationsService',
+    function ($state, StationService, PlayerService, WebAudioPlayerService, FavStationsService) {
       return {
         restrict: "E",
         replace: true,
@@ -91,7 +91,7 @@ angular.module('somafmPlayerApp')
           };
 
           scope.stopStation = function () {
-            PlayerService.stop();
+            WebAudioPlayerService.stop();
           };
 
           scope.toggleFavStation = function (station) {

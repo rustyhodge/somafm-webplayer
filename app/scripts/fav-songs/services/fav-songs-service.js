@@ -21,7 +21,6 @@ angular.module('somafmPlayerApp')
       };
 
       var addSong = function (song) {
-        console.log(song);
         return $q(function (resolve, reject) {
           getSongs().then(
             function (songs) {

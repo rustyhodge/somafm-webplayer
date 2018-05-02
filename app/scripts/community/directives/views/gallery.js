@@ -1,15 +1,19 @@
 'use strict';
 
 angular.module('somafmPlayerApp')
-  .directive("sfCommunityFlickrView", [
+  .directive("sfCommunityGalleryView", [
     '$timeout', 'CommunityService',
     function ($timeout, CommunityService) {
       return {
         restrict: "E",
         replace: true,
         scope: {},
-        templateUrl: 'community/views/flickr.tpl.html',
+        templateUrl: 'community/views/gallery.tpl.html',
         link: function (scope, element, attr) {
+          var load = function () {
+          };
+
+          load();
           /*
           var imgContainer = element.children().eq(2);
 
