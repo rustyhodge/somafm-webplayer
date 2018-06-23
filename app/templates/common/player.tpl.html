@@ -38,6 +38,35 @@
         <i class="fa fa-fw fa-lg fa-volume-up"></i>
       </button>
 
+      <!-- Sleep Timer-->
+      <div class="timer-dropdown" id="timer-button-block" width="54px">
+        <button class='btn btn-link' ng-disabled='!$root.playingStation' ng-click='popUpTimer()' data-toggle="dropdown">
+          <i class="fa fa-fw fa-lg far fa-clock-o" id="timer-icon"></i>
+        </button>
+        <div class="timer-dropdown-content" width="54px" id="timer-content-block">
+          <label>Sleep in:</label>
+          <hr/>
+          <a href="#" ng-click="setSleepTimer(10)">10 mins</a>
+          <br/>
+          <a href="#" ng-click="setSleepTimer(20)">20 mins</a>
+          <br/>
+          <a href="#" ng-click="setSleepTimer(30)">30 mins</a>
+          <br/>
+          <a href="#" ng-click="setSleepTimer(60)">60 mins</a>
+          <br/>
+          <a href="#" ng-click="setSleepTimer(90)">90 mins</a>
+          <br/>
+          <a href="#" ng-click="setSleepTimer(120)">120 mins</a>
+          <br/>
+        </div>
+      </div>
+      <div class="timer-running-dropdown" id="timer-status-block" width="54px">
+        <button id="timer_text" class="btn btn-link timer-text-style" ng-click="popUpStopTimer()">
+        </button>
+        <div class="timer-running-content" width="54px" id="timer-running-block">
+          <button class="btn btn-link" ng-click="stopSleepTimer()">Stop</label>
+        </div>
+      </div>
     </div>
   </div>
 </div>

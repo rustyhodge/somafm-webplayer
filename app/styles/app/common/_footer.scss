@@ -1,5 +1,4 @@
 .footer {
-
   .player {
     position: relative;
     width: 100%;
@@ -11,7 +10,6 @@
     border-radius: $border-radius-large;
 
     background: $gray-dark;
-    overflow: hidden;
 
     .background {
       @extend .row;
@@ -23,14 +21,16 @@
       height: $player-height;
 
       border-radius: $border-radius-large;
+      overflow: hidden;
 
       .image-container {
         @extend .col-xs-2;
         padding: 0 10px 0 0;
 
         .station-img {
-          width: 100%;
-          height: auto;
+          max-width: 100%;
+          margin-top: 19px;
+          height: -webkit-fill-available;
         }
       }
     }
@@ -43,7 +43,11 @@
 
       padding: 5px 0 0;
 
-      @include linear-gradient(to right, rgba($gray-dark, 0) 10%, rgba($gray-dark, 1) 15%);
+      @include linear-gradient(
+        to right,
+        rgba($gray-dark, 0) 10%,
+        rgba($gray-dark, 1) 15%
+      );
 
       .controls {
         @extend .col-xs-offset-2;
@@ -51,7 +55,7 @@
 
         padding-left: 0;
 
-        $btn-width:   50px;
+        $btn-width: 50px;
 
         .btn-link {
           position: relative;
@@ -59,11 +63,84 @@
           border: none;
         }
 
+        .btn-sleep-timer {
+          position: relative;
+          width: $btn-width;
+          border: none;
+        }
+
+        .timer-running-dropdown {
+          position: relative;
+          display: none;
+        }
+
+        .timer-running-content {
+          min-width: 75px;
+          display: none;
+          position: absolute;
+          background-color: $gray-dark;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          padding: 8px 8px;
+          z-index: 100;
+          bottom: 100%;
+          right: 0%;
+        }
+
+        .timer-running-dropdown .timer-text-style {
+          color: $gray-light;
+          width: 60px;
+        }
+
+        .timer-dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .timer-dropdown-content {
+          min-width: 75px;
+          display: none;
+          position: absolute;
+          background-color: $gray-dark;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          padding: 8px 8px;
+          z-index: 100;
+          bottom: 100%;
+          right: 0%;
+        }
+
+        .timer-dropdown-content a {
+          color: $gray-light;
+        }
+
+        .timer-dropdown-content hr {
+          color: $gray-light;
+        }
+        .timer-dropdown-content label {
+          color: $gray-light;
+        }
+
+        .timer-text-style {
+          display: inline-block;
+          margin-left: -15px;
+        }
+
+        .timer-dropdown .timer-dropdown-content {
+          display: none;
+        }
+
+        .timer-running-dropdown .timer-running-content {
+          display: none;
+        }
+
+        .timer-running-content button {
+          color: $gray-light;
+        }
+
         .volumebar {
           display: inline-block;
           position: relative;
 
-          width: calc(100% - (#{$btn-width} * 3) - 12px);
+          width: calc(100% - (#{$btn-width} * 3) - 12px - 54px);
           height: 10px;
 
           padding: 2px 0 0;
@@ -82,7 +159,7 @@
             left: 0;
             width: 50%;
 
-            @include transition(all .15s ease-out);
+            @include transition(all 0.15s ease-out);
             height: 8px;
             background: $gray-light;
             cursor: pointer;
@@ -103,18 +180,15 @@
 
       &.disabled {
         cursor: auto;
-        background-color:#1a1a1a;
+        background-color: #1a1a1a;
 
         & > img {
-          opacity:0.2;
+          opacity: 0.2;
         }
       }
-
     }
   }
-
 }
-
 
 @media (min-width: $screen-sm-min) {
   .footer {

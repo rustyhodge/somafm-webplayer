@@ -17,20 +17,18 @@ html {
     background: $gray-darker;
     height: 100%;
 
-
     .container {
       min-width: $min-window-width;
       max-width: $max-window-width;
 
       min-height: $min-window-height;
       height: 100%;
+      width: 100%;
 
       overflow: hidden;
     }
-
   }
 }
-
 
 .btn-link {
   color: $gray-light;

@@ -31,17 +31,15 @@ $icon-font-path: "fonts/";
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
+$min-window-width: 350px;
+$max-window-width: 525px;
+$min-window-height: 380px;
 
-$min-window-width:      350px;
-$max-window-width:      525px;
-$min-window-height:     380px;
+$base-header-height: 95px;
+$large-header-height: 122px;
 
-$base-header-height:    95px;
-$large-header-height:   122px;
-
-$player-height:         43px;
-$nav-height:            65px;
-
+$player-height: 43px;
+$nav-height: 65px;
 
 //App Styles
 @import "app/common/common";
@@ -63,9 +61,3 @@ $nav-height:            65px;
 
 @import "app/now-playing/header";
 @import "app/now-playing/body";
-
-
-
-
-
-
