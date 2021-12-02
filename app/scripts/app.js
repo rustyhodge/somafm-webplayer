@@ -32,7 +32,7 @@ angular
   .constant("POLL_INT", 30000)
   .constant(
     "SHOP_URI",
-    "http://somafm.com/buy/appbuy.cgi?mode=amazon&title={SONG}&artist={ARTIST}"
+    "http://somafm.com/buy/webplayerbuy.cgi?mode=amazon&title={SONG}&artist={ARTIST}"
   )
   .constant("X2JS", window.X2JS)
   .constant("Audio", window.Audio)
@@ -126,7 +126,7 @@ angular
         .state("now-playing", {
           url: "/now-playing/:stationID",
           data: {
-            largeHeader: false,
+            largeHeader: true,
             title:
               "SomaFM Player: Groove Salad (or whatever channel is playing)"
           },

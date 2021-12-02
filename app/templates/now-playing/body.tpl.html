@@ -15,21 +15,37 @@
   <div class="list-body">
     <div class="row card" ng-repeat="song in songs">
       <div class="col-xs-2">
-        <p>{{ song.date | date : "hh:mm" }}</p>
+        <p ng-if="$index == 0" class="first">{{ song.date | date: "hh:mm" }}</p>
+        <p ng-if="$index > 0">{{ song.date | date: "hh:mm" }}</p>
       </div>
       <div class="col-xs-3">
-        <p>{{song.artist}}</p>
+        <p ng-if="$index == 0" class="first">{{ song.artist }}</p>
+        <p ng-if="$index > 0">{{ song.artist }}</p>
       </div>
       <div class="col-xs-4">
-        <p>{{song.title}}</p>
+        <p ng-if="$index == 0" class="first">{{ song.title }}</p>
+        <p ng-if="$index > 0">{{ song.title }}</p>
       </div>
       <div class="col-xs-3">
         <div class="pull-right">
+          <!--          <div class="shop-dropdown"> -->
           <button class="btn btn-link btn-lg" ng-click="shopSong(song)">
+            <!--shopSong(song)-->
             <i class="fa fa-fw fa-shopping-cart"></i>
           </button>
-          <button class="btn btn-link btn-lg" ng-class="{'btn-fav': song.favorite}" ng-click="toggleFavSong(song)">
-            <i class="fa fa-fw " ng-class="{'fa-star': song.favorite, 'fa-star-o': !song.favorite}"></i>
+          <!--<div class="shop-dropdown-content" width="54px" id="shop-content-block-{{$index}}">
+              <a href="#" ng-click="shopSong(song)">Shop Amazon</a>
+            </div> 
+        </div> -->
+          <button
+            class="btn btn-link btn-lg"
+            ng-class="{'btn-fav': song.favorite}"
+            ng-click="toggleFavSong(song)"
+          >
+            <i
+              class="fa fa-fw "
+              ng-class="{'fa-star': song.favorite, 'fa-star-o': !song.favorite}"
+            ></i>
           </button>
         </div>
       </div>

@@ -1,6 +1,5 @@
 .header {
   .now-playing {
-
     .row {
       margin: 0;
 
@@ -12,7 +11,7 @@
         padding: 0 0 0 10px;
 
         h4 {
-          @include transition(font-size .3s ease-out);
+          @include transition(font-size 0.3s ease-out);
           margin: 0;
           font-size: 14px;
           font-weight: bold;
@@ -20,7 +19,7 @@
         }
 
         p {
-          @include transition(font-size .3s ease-out);
+          @include transition(font-size 0.3s ease-out);
           margin: 0 0 4px 0;
           font-size: 12px;
           line-height: 1.15em;
@@ -31,6 +30,16 @@
           font-size: 20px;
           line-height: 1.15;
           padding: 0 5px 0 0;
+        }
+      }
+
+      .amazon {
+        p {
+          @include transition(font-size 0.3s ease-out);
+          margin: 5px 0 5px 0;
+          font-size: 12px;
+          line-height: 1.15em;
+          color: $gray-light;
         }
       }
     }

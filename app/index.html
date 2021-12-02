@@ -1,64 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
+  <!--<![endif]-->
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <base href="/">
-  <!-- build:css(app/.tmp) styles/app.css -->
-  <link rel="stylesheet" href="styles/app.css">
-  <!-- endbuild -->
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- REMOVE LINE BELOW BEFORE DEPLOY -->
+    <base href="/" />
+    <!-- build:css(app/.tmp) styles/app.css -->
+    <link rel="stylesheet" href="styles/app.css" />
+    <!-- endbuild -->
+  </head>
 
-</head>
-
-<body ng-app="somafmPlayerApp">
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <body ng-app="somafmPlayerApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
     <![endif]-->
 
-  <div class="container" ng-controller="MainCtrl as mainCtrl">
-    <sf-header config="mainCtrl.config"></sf-header>
-    <sf-body config="mainCtrl.config"></sf-body>
-    <sf-footer config="mainCtrl.config"></sf-footer>
-  </div>
+    <div class="container" ng-controller="MainCtrl as mainCtrl">
+      <sf-header config="mainCtrl.config"></sf-header>
+      <sf-body config="mainCtrl.config"></sf-body>
+      <sf-footer config="mainCtrl.config"></sf-footer>
+    </div>
 
-
-  <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+    <!-- build:js({.tmp,app}) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/apiNG/dist/aping.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-  <!-- build:js({.tmp,app}) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/json3/lib/json3.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/apiNG/dist/aping.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- build:js({.tmp,app}) scripts/somafm.js -->
-  <!-- include: "type": "js", "files": ["scripts/common/utils/*.js"] -->
-  <!-- include: "type": "js", "files": ["scripts/config.js"] -->
-  <!-- include: "type": "js", "files": [".tmp/templates.js"] -->
-  <!-- include: "type": "js", "files": ["scripts/app.js"] -->
-  <!-- include: "type": "js", "files": ["scripts/**/*.js", "!scripts/*.js", "!scripts/common/utils/*.js"], "ordering": "top-down" -->
-  <!-- endbuild -->
-
-</body>
-
+    <!-- build:js({.tmp,app}) scripts/somafm.js -->
+    <!-- include: "type": "js", "files": ["scripts/common/utils/*.js"] -->
+    <!-- include: "type": "js", "files": ["scripts/config.js"] -->
+    <!-- include: "type": "js", "files": [".tmp/templates.js"] -->
+    <!-- include: "type": "js", "files": ["scripts/app.js"] -->
+    <!-- include: "type": "js", "files": ["scripts/**/*.js", "!scripts/*.js", "!scripts/common/utils/*.js"], "ordering": "top-down" -->
+    <!-- endbuild -->
+  </body>
 </html>

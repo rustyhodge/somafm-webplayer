@@ -72,7 +72,27 @@ angular.module("somafmPlayerApp").directive("sfNowPlayingBody", [
           var url = SHOP_URI;
           url = url.replace("{ARTIST}", song.artist);
           url = url.replace("{SONG}", song.title);
+          console.log(url);
           $window.open(url);
+        };
+
+        scope.popUpShop = function(song, index) {
+          if (
+            document.getElementById("shop-content-block-" + index).style
+              .display == "none" ||
+            document.getElementById("shop-content-block-" + index).style
+              .display == ""
+          ) {
+            document.getElementById(
+              "shop-content-block-" + index
+            ).style.display =
+              "block";
+          } else {
+            document.getElementById(
+              "shop-content-block-" + index
+            ).style.display =
+              "none";
+          }
         };
 
         scope.$on("$destroy", function() {

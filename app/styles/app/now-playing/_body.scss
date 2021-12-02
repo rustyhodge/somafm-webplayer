@@ -1,6 +1,6 @@
 .body {
   .now-playing {
-    $list-header-height:    40px;
+    $list-header-height: 40px;
     height: 100%;
 
     .list-header {
@@ -8,7 +8,14 @@
       margin-bottom: 2px;
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
-      @include linear-gradient(to bottom, #454545 0%,#404040 25%,#383838 50%,#2f3030 75%,#292929 100%);
+      @include linear-gradient(
+        to bottom,
+        #454545 0%,
+        #404040 25%,
+        #383838 50%,
+        #2f3030 75%,
+        #292929 100%
+      );
 
       .row {
         margin: 0;
@@ -19,6 +26,73 @@
         font-size: 12px;
         line-height: 1.1;
       }
+    }
+
+    .shop-running-dropdown {
+      position: relative;
+      display: none;
+    }
+
+    .shop-running-content {
+      min-width: 75px;
+      display: none;
+      position: absolute;
+      background-color: $gray-dark;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 8px 8px;
+      z-index: 100;
+      bottom: 100%;
+      right: 0%;
+    }
+
+    .shop-running-dropdown .shop-text-style {
+      color: $gray-light;
+      width: 60px;
+    }
+
+    .shop-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .shop-dropdown-content {
+      min-width: 75px;
+      display: none;
+      position: absolute;
+      background-color: $gray-dark;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 8px 8px;
+      z-index: 100;
+      bottom: 100%;
+      right: 0%;
+    }
+
+    .shop-dropdown-content a {
+      color: $gray-light;
+    }
+
+    .shop-dropdown-content hr {
+      color: $gray-light;
+    }
+    .shop-dropdown-content label {
+      color: $gray-light;
+    }
+
+    .shop-text-style {
+      display: inline-block;
+      margin-left: -15px;
+    }
+
+    .shop-dropdown .shop-dropdown-content {
+      display: none;
+    }
+
+    .shop-running-dropdown .shop-running-content {
+      display: none;
+    }
+
+    .shop-running-content button {
+      color: $gray-light;
     }
 
     .list-body {
@@ -43,11 +117,14 @@
           line-height: 1.5em;
           color: $gray-light;
         }
-
+        .first {
+          color: $current-playing;
+        }
         .btn-link {
           padding: 6px 2px;
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             outline: none;
           }
 
@@ -55,9 +132,7 @@
             padding-right: 0;
           }
         }
-
       }
-
     }
   }
 }
@@ -65,27 +140,21 @@
 @media (min-width: $screen-sm-min) {
   .body {
     .now-playing {
-
       .list-header {
-
         h5 {
           margin-top: 11px;
           font-size: 14px;
           line-height: 1.1;
         }
-
       }
 
       .list-body {
-
         .card {
-
           p {
             font-size: 13px;
           }
         }
       }
-
     }
   }
 }
